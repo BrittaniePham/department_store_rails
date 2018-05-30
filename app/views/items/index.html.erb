@@ -1,2 +1,9 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<h1><%= @department.name %> Items</h1>
+<%= link_to 'add item', new_department_item_path(@department) %>
+<ul>
+  <% @items.each do |item| %>
+    <li>
+      <%= link_to item.name, [@department, item] %>
+    </li>
+  <% end %>
+</ul>
