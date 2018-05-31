@@ -11,12 +11,19 @@
     name: Faker::Commerce.department(1)
     )
 
-    20.times do
-      department.items.create(
-        name: Faker::Commerce.product_name,
-        price: Faker::Number.decimal(2)
+  20.times do
+    item = department.items.create(
+      name: Faker::Commerce.product_name,
+      price: Faker::Number.decimal(2)
+    )
+
+    10.times do
+      item.comments.create(
+        author: Faker::HarryPotter.character,
+        body: Faker::HarryPotter.quote
       )
     end
+  end
 end
 
 puts 'seeded'

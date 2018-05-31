@@ -1,4 +1,4 @@
 class Item < ApplicationRecord
   belongs_to :department
-  has_many :comments
+  has_many :comments, dependent: :destroy
 end

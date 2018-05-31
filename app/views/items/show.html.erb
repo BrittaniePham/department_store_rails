@@ -1,14 +1,16 @@
 <%= @item.name %>
 <p>$<%= @item.price %></p>
-<br/>
-
 <%= link_to 'Add comment', new_item_comment_path(@item)%>
 <%= link_to 'Edit item', edit_department_item_path(@department, @item) %>
 <%= link_to 'delete item', [@department, @item], method: :delete %>
 <%= link_to 'Back', department_items_path(@department) %>
+<br/>
 
+<h2>Comments</h2>
   <% @item.comments.each do |comment| %>
     <%= render 'comments/comment', { comment: comment } %> <!-- ??????? -->
     <%= link_to 'edit comment', edit_item_comment_path(@item, comment)%> 
+    <%= link_to 'delete comment', item_comment_path(@item, comment), method: :delete %>
+    <hr/>
   <% end %>
 <hr/>

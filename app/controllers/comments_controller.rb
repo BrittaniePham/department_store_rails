@@ -1,13 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_item
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @comments = @item.comments
-  end
-
-  def show
-  end
+  before_action :set_comment, only: [:edit, :update, :destroy]
 
   def new
     @comment = Comment.new
@@ -33,6 +26,11 @@ class CommentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @comment.destroy
+    redirect_to department_item_path(@item.department.id, @item)
   end
 
   private
