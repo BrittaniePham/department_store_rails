@@ -1,0 +1,10 @@
+<h1><%= @comment.id ? 'Edit your comment' : 'Add a comment' %></h1>
+<%= form_for [@item, @comment] do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <br/>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <br/>
+  <%= f.submit %>
+<% end %>

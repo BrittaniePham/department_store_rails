@@ -2,11 +2,11 @@ class ItemsController < ApplicationController
   before_action :set_department
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  def index
+  def index #is this necessary?
     @items = @department.items
   end
 
-  def show
+  def show #is this necessary?
   end
 
   def new
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
   end
 
   private
-    def set_item
+    def set_item #is this necessary?
       @item = Item.find(params[:id])
     end
 
